@@ -20,13 +20,13 @@
 
       <div class="container main-wrapper py-5 my-5">
         <div class="container page-wrapper">
-   
-          <div class="notices">
+
+          <div class="notices max-w-4xl px-10 mb-5 mx-auto">
             <% if notice %>
-              <p class="notice bg-success"><%= notice %></p>
+              <p class="pl-5 border bg-green-100 border-green-300 notice bg-success"><%= notice %></p>
             <% end %>
             <% if alert %>
-              <p class="alert bg-alert"><%= alert %></p>
+              <p class="pl-5 border bg-red-100 border-red-400 alert bg-alert"><%= alert %></p>
             <% end %>
           </div>
 
@@ -35,7 +35,8 @@
         </div>
       </div>
     </main>
-    <footer class="flex-shrink footer-wrapper container min-w-full">
+    <footer class="flex-shrink footer-wrapper
+                  mx-auto container min-w-full">
       <%= render 'shared/footer' %>
     </footer>
   </body>
