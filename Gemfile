@@ -25,16 +25,19 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'haml-rails'
 gem 'devise'
+gem 'pundit'
 gem 'kaminari'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'redcarpet'
+gem 'rouge'
+gem 'simple_form'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rspec'
+  gem 'rspec-rails'
   gem 'pry'
 end
 
