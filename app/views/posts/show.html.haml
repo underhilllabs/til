@@ -1,15 +1,19 @@
 %p#notice= notice
 
-%p
-  %b Title:
-  = @post.title
-%p
-  %b User:
-  = @post.user
-%p
-  %b Content:
-  = @post.content
+.container.text-center
+  %p.mx-auto
+    %h2.text-xl
+      = @post.title
 
-= link_to 'Edit', edit_post_path(@post)
-\|
-= link_to 'Back', posts_path
+  %p.color-gray-500= "#{@post.tag_list}"
+  
+.container
+  .rounded.bg-gray-200.px-4.py-8.max-w-3xl.mx-auto.border-purple-500.border-2
+    = markdown @post.content.to_s
+
+.container
+  = link_to 'Back', posts_path
+  - if user_signed_in?
+    %span 
+      | 
+      = link_to 'Edit', edit_post_path(@post), class: "btn btn-primary"

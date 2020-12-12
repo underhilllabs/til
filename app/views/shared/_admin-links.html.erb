@@ -1,0 +1,11 @@
+<div id="footer-links">
+  <% if user_signed_in? %>
+    <p>
+    <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "btn btn-sm btn-danger") %>
+    </p>
+  <% else %>
+    <p>
+    <%= link_to('Login', new_user_session_path, class: "btn btn-sm btn-success") %>
+    </p>
+  <% end %>
+</div>

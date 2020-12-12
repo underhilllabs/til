@@ -1,15 +1,42 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Til</title>
+    <title>Til: Today I learned</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">  
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="flex flex-col min-w-0">
+    <main class="flex-1">
+      <header class="container min-w-full shadow-lg">
+        <%= render 'shared/logo_header' %>
+      </header>
+
+      <div class="container main-wrapper py-5 my-5">
+        <div class="container page-wrapper">
+   
+          <div class="notices">
+            <% if notice %>
+              <p class="notice bg-success"><%= notice %></p>
+            <% end %>
+            <% if alert %>
+              <p class="alert bg-alert"><%= alert %></p>
+            <% end %>
+          </div>
+
+          <%= yield %>
+
+        </div>
+      </div>
+    </main>
+    <footer class="flex-shrink footer-wrapper container min-w-full">
+      <%= render 'shared/footer' %>
+    </footer>
   </body>
 </html>

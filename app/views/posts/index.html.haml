@@ -1,25 +1,9 @@
-%h1 Listing posts
+.container.flex.justify-center
+  .container.px-10.w-50.max-w-4xl
+    .bg-yellow-300.p-5
+      %h1 Recent Posts
 
-%table
-  %thead
-    %tr
-      %th Title
-      %th User
-      %th Content
-      %th
-      %th
-      %th
+    .rounded.bg-yellow-100.px-5.py-3.shadow-md
+      - @posts.each do |post|
+        .content= link_to post.title, post_path(post)
 
-  %tbody
-    - @posts.each do |post|
-      %tr
-        %td= post.title
-        %td= post.user
-        %td= post.content
-        %td= link_to 'Show', post
-        %td= link_to 'Edit', edit_post_path(post)
-        %td= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Post', new_post_path
