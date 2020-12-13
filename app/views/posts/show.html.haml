@@ -7,13 +7,12 @@
 
   %p.color-gray-500= "#{@post.tag_list}"
   
-.container
-  .rounded.bg-gray-200.px-4.py-8.max-w-3xl.mx-auto.border-purple-500.border-2
+.container.max-w-3xl.mx-auto
+  .rounded.bg-gray-200.px-4.py-8.border-purple-500.border-2
     = markdown @post.content.to_s
 
-.container
-  = link_to 'Back', posts_path
-  - if user_signed_in?
-    %span 
-      | 
-      = link_to 'Edit', edit_post_path(@post), class: "btn btn-primary"
+  .mt-10.px-10
+    = link_to 'Back', posts_path, class: "rounded bg-gray-200 text-gray-600 px-3 py-2"
+    - if user_signed_in?
+      %span.px-2
+        = link_to 'Edit', edit_post_path(@post), class: "rounded bg-blue-500 text-blue-200 px-3 py-2"

@@ -1,8 +1,10 @@
 .container.mx-15
-  %h1.text-2xl Editing post
+  .pl-10.mb-10
+    %h1.text-2xl Editing post
 
   = render 'form'
 
-  = link_to 'Show', @post
-  \|
-  = link_to 'Back', posts_path
+  .pl-10
+    = link_to 'Show', @post
+    \|
+    = link_to 'Back', posts_path

@@ -1,0 +1,28 @@
+<div class="w-1/2 mx-10">
+  <%= form_for @post do |f| %>
+    <% if @post.errors.any? %>
+      <div #error_explanation>
+        <h2 class="text-3xl"><%= "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"%></h2>
+        <ul>
+          <% @post.errors.full_messages.each do |message| %>
+            <li><%= message%></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="grid grid-cols-1 gap-4">
+      <div class="grid grid-cols-1">
+        <%= f.label :title%>
+        <%= f.text_field :title, class:"bg-gray-200"  %>
+      </div>
+      <div class="grid grid-cols-1">
+        <%= f.label :content %>
+        <%= f.text_area :content, rows:10, class:"bg-gray-200" %>
+      </div>
+      <div>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.submit class: "bg-blue-600 text-blue-200 px-3 py-2 rounded" %>
+      </div>
+    </div>
+  <% end %>
+</div>
